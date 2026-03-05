@@ -7,20 +7,20 @@ Basic usage:<br>
 `python homer_to_meme.py -d /[path/to/input/directory] -o [/path/to/output/file] -v [MEME version] [optional args]`
 
 Full description of command line arguments:<br>
-`-h, --help            show this help message and exit
-  --directory DIRECTORY, -d DIRECTORY
+`-h, --help            show this help message and exit`<br>
+`  --directory DIRECTORY, -d DIRECTORY
                         full path to directory containing HOMER .motif files
-                        (input)
-  --outfile OUTFILE, -o OUTFILE
-                        full path to desired output file
-  --version VERSION, -v VERSION
-                        MEME-suite version
-  --alphabet ALPHABET, -a ALPHABET
-                        alphabet to put in MEME header (default: ACGT)
-  --strands STRANDS, -s STRANDS
+                        (input)`<br>
+`  --outfile OUTFILE, -o OUTFILE
+                        full path to desired output file`<br>
+`  --version VERSION, -v VERSION
+                        MEME-suite version`<br>
+`  --alphabet ALPHABET, -a ALPHABET
+                        alphabet to put in MEME header (default: ACGT)`<br>
+`  --strands STRANDS, -s STRANDS
                         optional strand information for MEME header
-                        (default=None)
-  --background BACKGROUND, -b BACKGROUND
+                        (default=None)`<br>
+`  --background BACKGROUND, -b BACKGROUND
                         optional background letter frequency information for
                         MEME header (default=None)`
 
