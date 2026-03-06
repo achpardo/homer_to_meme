@@ -23,12 +23,25 @@ def write_meme_header(version,output,alphabet="ACGT",strands=None,bkgrd=None):
         if bkgrd!=None:
             outfile.write("Background letter frequencies\n"+bkgrd+"\n\n")
 
-def write_single_meme(infpath,output,alphabet="ACGT"):
+def write_single_meme(infpath,output,nsites=None,e=None,alphabet="ACGT"):
     """
     Arguments:
         infpath = full path to a single-motif input file (in HOMER .motif format)
         output = full path to output file with MEME header already written
+        nsites = source sites (see MEME format documentation; default 20 if not provided; default in this function None)
+        e = source E-value (see MEME format documentation; default 0 if not provided to MEME; default in this function None)
+        alphabet = DNA or other alphabet (DNA by default)
     """
+    if nsites != None:
+        nsites = " nsites= "+str(nsites)+" "
+    else:
+        nsites = ""
+
+    if e != None:
+        e = " E= "+str(e)+" "
+    else:
+        e = ""
+
     with open(infpath,"r") as infile:
         with open(output,"a") as outfile:
             for line in infile:
@@ -37,7 +50,7 @@ def write_single_meme(infpath,output,alphabet="ACGT"):
                     motifname = info[1]
                     motifseq = info[0].lstrip(">")
                     outfile.write("MOTIF "+motifname+"_"+motifseq+"\n")
-                    outfile.write("letter-probability matrix: alength= "+str(len(alphabet))+" w= "+str(len(motifseq))+" nsites= E=\n")
+                    outfile.write("letter-probability matrix: alength= "+str(len(alphabet))+" w= "+str(len(motifseq))+nsites+e+"\n")
                 else:
                     outfile.write(line) # note lines in HOMER-format motif files already have \n at the end
             outfile.write("\n")
